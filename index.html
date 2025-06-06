@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discord Ban Evader Detector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🕵️‍♂️ Ban Evader Detector</h1>
+
+  <div class="container">
+    <textarea id="userA" placeholder="Paste USER A logs here..."></textarea>
+    <textarea id="userB" placeholder="Paste USER B logs here..."></textarea>
+    <button onclick="analyze()">Analyze</button>
+  </div>
+
+  <div id="results" class="hidden">
+    <h2>🔍 Analysis Results</h2>
+    <p><strong>Similarity Score:</strong> <span id="score" class=""></span>/10</p>
+    <div class="score-bar-container">
+      <div class="score-bar" id="scoreBar"></div>
+    </div>
+    <p><strong>Verdict:</strong> <span id="verdict"></span></p>
+
+    <h3>📊 Breakdown</h3>
+    <ul>
+      <li><strong>Emoji Use:</strong> <span id="emoji"></span>/10</li>
+      <li><strong>Vocabulary Overlap:</strong> <span id="vocab"></span>/10</li>
+      <li><strong>Writing Pattern:</strong> <span id="pattern"></span>/10</li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

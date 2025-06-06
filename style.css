@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #121212;
+  color: #eee;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #00ffcc;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea {
+  width: 90%;
+  max-width: 700px;
+  height: 200px;
+  margin: 10px 0;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  background: #1e1e1e;
+  color: #eee;
+  border: 1px solid #444;
+  resize: vertical;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #00ffcc;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00ddaa;
+}
+
+/* 🎯 RESULTS PANEL */
+#results {
+  margin-top: 30px;
+  background: #1c1c1c;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #00ffcc33;
+  width: 90%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
+}
+
+#results.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#results h2 {
+  color: #00ffcc;
+  font-size: 1.5em;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+#results p,
+#results li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+#results strong {
+  color: #ffffff;
+}
+
+#results span {
+  font-weight: bold;
+}
+
+#results ul {
+  list-style: none;
+  padding: 0;
+}
+
+#results ul li::before {
+  content: "• ";
+  color: #00ffcc;
+}
+
+/* 🔵 Score bar */
+.score-bar-container {
+  background: #333;
+  border-radius: 5px;
+  height: 16px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.score-bar {
+  height: 100%;
+  border-radius: 5px;
+  background: linear-gradient(to right, #00ffcc, #0077aa);
+  width: 0%;
+  transition: width 0.7s ease-in-out;
+}
+
+/* 🎨 Score color cues */
+.score-green {
+  color: #00ff99;
+}
+.score-yellow {
+  color: #ffcc00;
+}
+.score-red {
+  color: #ff4444;
+}
