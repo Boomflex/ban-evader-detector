@@ -2,16 +2,16 @@ async function analyze() {
   const userA = document.getElementById('userA').value;
   const userB = document.getElementById('userB').value;
 
-fetch("https://ba31-2a02-c7c-584a-a900-d566-912a-fc31-585b.ngrok-free.app/analyze", {
+  const response = await fetch("https://ba31-2a02-c7c-584a-a900-d566-912a-fc31-585b.ngrok-free.app/analyze", {
     method: "POST",
     headers: {
-        "Content-Type": "application/json"
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
-        user_a: userALogs,
-        user_b: userBLogs
+      user_a: userA,
+      user_b: userB
     })
-})
+  });
 
   const data = await response.json();
 
@@ -26,7 +26,7 @@ fetch("https://ba31-2a02-c7c-584a-a900-d566-912a-fc31-585b.ngrok-free.app/analyz
   const scoreBar = document.getElementById('scoreBar');
 
   // Update numeric score and verdict
-  scoreSpan.textContent = score;
+  scoreSpan.textContent = score.toFixed(1);
   document.getElementById('verdict').textContent = data.verdict;
 
   // Score styling
