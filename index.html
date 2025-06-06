@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Discord Ban Evader Detector</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Discord Ban Evader Detector</h1>
-
-    <textarea id="userA" placeholder="Paste USER A logs here..."></textarea>
-    <textarea id="userB" placeholder="Paste USER B logs here..."></textarea>
+    <h1>🕵️ Ban Evader Detector</h1>
+    <div class="input-panel">
+      <div class="textarea-group">
+        <label for="userA">User A Logs</label>
+        <textarea id="userA" placeholder="Paste USER A's chat logs..."></textarea>
+      </div>
+      <div class="textarea-group">
+        <label for="userB">User B Logs</label>
+        <textarea id="userB" placeholder="Paste USER B's chat logs..."></textarea>
+      </div>
+    </div>
 
     <button onclick="analyze()">Analyze</button>
 
     <div id="loadingSpinner" class="spinner hidden"></div>
 
-    <div id="results" class="hidden">
+    <div id="results" class="results hidden">
       <h2>🔍 Results</h2>
-      <p><strong>Similarity Score:</strong> <span id="score">0</span>/10</p>
-      <div class="score-bar">
-        <div id="scoreBar" class="score-bar-fill"></div>
-      </div>
+      <p><strong>Similarity Score:</strong> <span id="score" class="score-value">0</span>/10</p>
+      <div class="score-bar-container"><div id="scoreBar" class="score-bar"></div></div>
       <p><strong>Verdict:</strong> <span id="verdict"></span></p>
-      <h3>Breakdown</h3>
-      <ul>
-        <li><strong>Emoji/Slang Use:</strong> <span id="emoji"></span>/10</li>
-        <li><strong>Topic Similarity:</strong> <span id="vocab"></span>/10</li>
-        <li><strong>Behavior Patterns:</strong> <span id="pattern"></span>/10</li>
-      </ul>
+      <div class="breakdown">
+        <p><strong>Emoji & Slang:</strong> <span id="emoji">-</span>/10</p>
+        <p><strong>Topic Overlap:</strong> <span id="vocab">-</span>/10</p>
+        <p><strong>Posting Pattern:</strong> <span id="pattern">-</span>/10</p>
+      </div>
     </div>
   </div>
 

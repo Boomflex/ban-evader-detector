@@ -1,10 +1,13 @@
 async function analyze() {
   const userA = document.getElementById('userA').value;
   const userB = document.getElementById('userB').value;
-  const loadingSpinner = document.getElementById('loadingSpinner');
+
+  const spinner = document.getElementById('loadingSpinner');
+  const resultsPanel = document.getElementById('results');
 
   // Show spinner
-  loadingSpinner.classList.remove('hidden');
+  spinner.classList.remove('hidden');
+  resultsPanel.classList.add('hidden');
 
   try {
     const response = await fetch("https://2741-2a02-c7c-584a-a900-d566-912a-fc31-585b.ngrok-free.app/analyze", {
@@ -20,9 +23,6 @@ async function analyze() {
 
     const data = await response.json();
 
-    // Hide spinner
-    loadingSpinner.classList.add('hidden');
-
     if (data.error) {
       alert("Error: " + data.error);
       console.error("API Error:", data);
@@ -33,9 +33,11 @@ async function analyze() {
     const scoreSpan = document.getElementById('score');
     const scoreBar = document.getElementById('scoreBar');
 
-    scoreSpan.textContent = score.toFixed(1);
+    // Update numeric score and verdict
+    scoreSpan.textContent = score;
     document.getElementById('verdict').textContent = data.verdict;
 
+    // Score styling
     scoreSpan.className = "";
     if (score >= 8.5) {
       scoreSpan.classList.add("score-green");
@@ -45,19 +47,24 @@ async function analyze() {
       scoreSpan.classList.add("score-red");
     }
 
+    // Animate score bar
     const percent = Math.min(100, (score / 10) * 100);
     scoreBar.style.width = percent + "%";
 
+    // Show breakdown
     document.getElementById('emoji').textContent = data.breakdown.emoji_slang;
     document.getElementById('vocab').textContent = data.breakdown.subject_matter;
     document.getElementById('pattern').textContent = data.breakdown.behavioral_pattern;
 
-    const resultsPanel = document.getElementById('results');
+    // Show results
     resultsPanel.classList.remove('hidden');
     resultsPanel.classList.add('show');
+
   } catch (error) {
-    loadingSpinner.classList.add('hidden');
-    alert("An error occurred: " + error.message);
+    alert("Something went wrong. Check the console for more info.");
     console.error("Request failed:", error);
+  } finally {
+    // Hide spinner
+    spinner.classList.add('hidden');
   }
 }
