@@ -2,7 +2,7 @@ async function analyze() {
   const userA = document.getElementById('userA').value;
   const userB = document.getElementById('userB').value;
 
-  const response = await fetch("https://d32b-2a02-c7c-584a-a900-d566-912a-fc31-585b.ngrok-free.app/analyze", {
+  const response = await fetch("https://ba31-2a02-c7c-584a-a900-d566-912a-fc31-585b.ngrok-free.app/analyze", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
