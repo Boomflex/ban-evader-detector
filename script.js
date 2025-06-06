@@ -2,7 +2,7 @@ async function analyze() {
   const userA = document.getElementById('userA').value;
   const userB = document.getElementById('userB').value;
 
-  const response = await fetch("http://localhost:5000/analyze", {
+  const response = await fetch("http://172.24.208.1:5000/analyze", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
